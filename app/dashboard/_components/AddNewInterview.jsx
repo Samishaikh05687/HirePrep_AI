@@ -14,14 +14,23 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { chatSession } from "@/utils/GeminiAIModel";
 import { LoaderCircle } from "lucide-react";
+import { v4 as uuidv4 } from "uuid";
+import { useUser } from "@clerk/nextjs";
+import { db } from "@/utils/db";
+import { MockInterview } from "@/utils/schema";
+
+import moment from "moment";
+import { useRouter } from "next/navigation";
 
 const AddNewInterview = () => {
   const [openDailog, setOpenDialog] = useState(false);
   const [jobPosition, setJobPosition] = useState();
   const [jobDesc, setJobDesc] = useState();
   const [jobExperience, setJobExperience] = useState();
-  const[loading,setLoading]=useState(false);
-  const[jsonResponse,setJsonResponse]=useState([]);
+  const [loading, setLoading] = useState(false);
+  const [jsonResponse, setJsonResponse] = useState([]);
+  const { user } = useUser();
+  const router = useRouter();
   const onSubmit = async (e) => {
     setLoading(true);
     e.preventDefault();
@@ -38,11 +47,34 @@ const AddNewInterview = () => {
       process.env.NEXT_PUBLIC_INTERVIEW_QUESTION_COUNT +
       " Interview question with Answered in JSON Format, Give Question and Answered as field in JSON";
     const result = await chatSession.sendMessage(InputPromt);
-    const MockJsonResp=(result.ressponse.text()).replace('```json','').replace('```','')
+    const MockJsonResp = (result.response
+      .text())
+      .replace("```json", "")
+      .replace("```", "");
     console.log(JSON.parse(MockJsonResp));
     setJsonResponse(MockJsonResp);
-    setLoading(false);  
-};
+
+    if (MockJsonResp) {
+      const resp = await db
+        .insert(MockInterview)
+        .values({
+          mockId: uuidv4(),
+          jsonMockResp: MockJsonResp,
+          jobPosition: jobPosition,
+          jobDesc: jobDesc,
+          jobExperience: jobExperience,
+          createdBy: user?.primaryEmailAddress?.emailAddress,
+          createdAt: moment().format("DD-MM-YYYY"),
+        })
+        .returning({ mockId: MockInterview.mockId });
+      console.log("Inserted Id", resp);
+      if(resp){
+        setOpenDialog(false);
+        router.push('/dashboard/interview/'+resp[0]?.mockId)
+      }
+    }
+    setLoading(false);
+  };
 
   return (
     <div>
@@ -103,12 +135,19 @@ const AddNewInterview = () => {
                     Cancel
                   </Button>
                   <Button
-                    type="submit" disable={loading}
+                    type="submit"
+                    disable={loading}
                     className="bg-[#4B70F5] text-white hover:text-black hover:bg-secondary"
-                  
                   >
-                    {loading?<> <LoaderCircle className="animate-spin"/>Generating from AI</>:'Start Interview'}
-                    
+                    {loading ? (
+                      <>
+                        {" "}
+                        <LoaderCircle className="animate-spin" />
+                        Generating from AI
+                      </>
+                    ) : (
+                      "Start Interview"
+                    )}
                   </Button>
                 </div>
               </form>
