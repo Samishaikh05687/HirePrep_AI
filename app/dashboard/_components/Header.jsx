@@ -13,7 +13,10 @@ const Header = () => {
 
   return (
     <div className="flex p-4 items-center justify-between bg-secondary shadow-sm">
-        <Image src={'/logo.svg' } alt='logo' height={100} width={160} />
+        <div className="flex"><Image src={'/logo.svg' } alt='logo' height={35} width={35} />
+        <span className="font-light text-[13px] mt-2 ">HirePrep </span>
+        </div>
+        
         <ul className="hidden md:flex gap-6">
             <li className={`hover:text-[#4B70F5] hover: font-bold transition-all cursor-pointer ${path=='/dashboard'&&'text-[#4B70F5] font-bold'}`}>Dashboard</li>
             <li className={`hover:text-[#4B70F5] hover: font-bold transition-all cursor-pointer ${path=='/dashboard/questions'&&'text-[#4B70F5] font-bold'}`}>Questions</li>

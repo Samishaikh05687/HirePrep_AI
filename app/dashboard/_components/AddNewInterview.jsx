@@ -98,7 +98,7 @@ const AddNewInterview = () => {
                     and Year of Experience{" "}
                   </h2>
                   <div className="my-3 mt-7">
-                    <label>Job Position/Job Role</label>
+                    <label className="text-black  font-semibold">Job Position/Job Role</label>
                     <Input
                       className="mt-2"
                       placeholder="EX. Full Stack Developer"
@@ -107,7 +107,7 @@ const AddNewInterview = () => {
                     />
                   </div>
                   <div className="my-3">
-                    <label>Job Description / Tech Stack (In Breif)</label>
+                    <label className="text-black font-semibold">Job Description / Tech Stack (In Breif)</label>
                     <Textarea
                       className="mt-2"
                       placeholder="EX. React, Angular, NodeJs , MySql Etc."
@@ -116,7 +116,7 @@ const AddNewInterview = () => {
                     />
                   </div>
                   <div className="my-3 ">
-                    <label>Year of Experience</label>
+                    <label className="text-black  font-semibold">Year of Experience</label>
                     <Input
                       className="mt-2"
                       placeholder="EX. 5 years"
@@ -130,6 +130,7 @@ const AddNewInterview = () => {
                   <Button
                     type="button"
                     variant="ghost"
+                    className="text-black font-bold"
                     onClick={() => setOpenDialog(false)}
                   >
                     Cancel
