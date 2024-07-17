@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { db } from "@/utils/db";
 import { MockInterview } from "@/utils/schema";
 import { eq } from "drizzle-orm";
-import { Lightbulb, WebcamIcon } from "lucide-react";
+import { Lightbulb, Loader2, WebcamIcon } from "lucide-react";
 import Link from "next/link";
 import Webcam from "react-webcam";
 
@@ -28,7 +28,7 @@ const Interview = ({ params }) => {
   };
 
   if (!interviewData) {
-    return <div>Loading...</div>;
+    return <div className="text-5xl flex items-center justify-center my-20 font-bold">Loading.....</div>;
   }
 
   return (
@@ -54,15 +54,15 @@ const Interview = ({ params }) => {
           </div>
         </div>
 
-        <div>
+        <div className="my-5">
           {webCamEnabled ? 
             <Webcam
               onUserMedia={() => setWebCamEnabled(true)}
               onUserMediaError={() => setWebCamEnabled(false)}
               mirrored={true}
               style={{
-                height: 300,
-                width: 300,
+                height: 400,
+                width: 600,
               }}
             />
            : 
@@ -79,9 +79,9 @@ const Interview = ({ params }) => {
         </div>
       </div>
 
-      <div className="flex justify-end items-start">
+      <div className="flex justify-center  items-center">
         <Link href={`/dashboard/interview/${params.interviewId}/start`}>
-          <Button className="bg-[#4B70F5] text-white hover:text-black hover:bg-secondary">
+          <Button className="bg-[#4B70F5] font-[500] text-white hover:text-black hover:bg-secondary">
             Start Interview
           </Button>
         </Link>

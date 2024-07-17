@@ -13,8 +13,8 @@ const Header = () => {
 
   return (
     <div className="flex p-4 items-center justify-between bg-secondary shadow-sm">
-        <div className="flex"><Image src={'/logo.svg' } alt='logo' height={35} width={35} />
-        <span className="font-light text-[13px] mt-2 ">HirePrep </span>
+        <div className="flex"><Image src={'/logo.svg' } alt='logo' height={40} width={40} />
+        <span className="font-light text-[15px] mt-2 ">HirePrep</span>
         </div>
         
         <ul className="hidden md:flex gap-6">
