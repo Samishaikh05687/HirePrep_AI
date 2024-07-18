@@ -4,7 +4,7 @@ import { Lightbulb, Volume2 } from 'lucide-react'
 
 const QuestionsSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
   if (!mockInterviewQuestion || mockInterviewQuestion.length === 0) {
-    return <div>No questions available.</div>;
+    return <div className="text-2xl my-20">Please Wait for Questions</div>;
   }
    const textToSpeech=(text)=>{
     if('speechSynthesis' in window){

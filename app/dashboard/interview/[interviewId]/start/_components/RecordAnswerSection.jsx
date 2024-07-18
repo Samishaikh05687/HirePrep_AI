@@ -28,6 +28,7 @@ const RecordAnswerSection = ({
     results,
     startSpeechToText,
     stopSpeechToText,
+    setResults,
   } = useSpeechToText({
     continuous: true,
     useLegacyResults: false,
@@ -89,14 +90,16 @@ const RecordAnswerSection = ({
 
     if (resp) {
       toast("User Answer recorded successfully ");
+      setUserAnswer(" ");
+      setResults([]);
     }
-    setUserAnswer(" ");
+    setResults([]);
     setLoading(false);
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="flex flex-col mt-20 justify-center items-center bg-black p-1 rounded-lg">
+    <div className="flex flex-col items-center justify-center h-50">
+      <div className="flex flex-col justify-center items-center bg-black p-1 rounded-lg">
         <Image src={"/web.png"} width={200} height={200} className="absolute" />
         <Webcam
           mirrored={true}
