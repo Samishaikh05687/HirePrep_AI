@@ -1,41 +1,61 @@
-"use client";
- 
-import { cn } from "@/lib/utils";
-import DotPattern from "@/components/magicui/dot-pattern";
-import { Button } from "@/components/ui/button";
+import Head from "next/head";
 
 
 export default async function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-20 bg-gray-100 shadow-2xl shadow-black">
-      <div className="relative flex h-[720px] w-full items-center justify-center overflow-hidden rounded-lg border bg-background p-20 md:shadow-xl">
-      
-          <div className="max-w-[50rem] m-0 p-0">
-          <h1 className="relative z-10 text-lg md:text-7xl bg-clip-text text-transparent bg-gradient-to-b from-sky-400 to-violet-500 leading-3 text-center font-sans font-bold">
-          Ace Interviews with HirePrep AI
-          </h1>
+    <main className="flex min-h-screen flex-col items-center justify-between p-20 bg-gray-200 shadow-2xl shadow-black">
+      <div className="relative flex min-h-screen bg-[#131313] text-black w-full items-center flex-col justify-center overflow-hidden rounded-lg border bg-background p-5 md:shadow-xl">
+        <Head>
+          <title>HirePrep AI</title>
+          <meta
+            name="description"
+            content="HirePrep AI - Your AI-powered interview preparation assistant"
+          />
+          <link rel="icon" href="/favicon.ico" />
 
-          <p className="text-black max-w-[40rem] mx-auto my-2 text-[18px]   text-center relative z-10">
-          Welcome to HirePrep AI! Revolutionize your interview preparation with our cutting-edge AI-powered mock interviewer. Designed for job seekers of all levels, HirePrep AI offers a personalized, interactive, and realistic interview experience. 
+          <link
+            href="https://fonts.googleapis.com/css2?family=Arsenal+SC:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+            rel="stylesheet"
+          />
+        </Head>
+
+        <header className="w-full flex justify-between items-center p-6">
+          <div className="text-lg font-bold font-arsenal">WE LAUNCH</div>
+          <nav className="flex space-x-6">
+            <a href="#" className="hover:underline">
+              About
+            </a>
+            <a href="#" className="hover:underline">
+              Plans
+            </a>
+            <a href="#" className="hover:underline">
+              Cases
+            </a>
+            <a href="#" className="hover:underline">
+              Contact
+            </a>
+          </nav>
+        </header>
+
+        <main className="flex flex-col items-center justify-center flex-grow">
+          <h1 className="text-8xl font-bold text-center font-arsenal my-5">
+          ACE INTERVIEWS <br/> WITH<br/> <span className="bg-[#4B70F5] rounded-lg m-2 p-1  text-7xl font-thin">HIREPREP AI</span>
+          </h1>
+          <p className="text-center mt-4 max-w-3xl text-gray-500">
+          Welcome to <b>HirePrep AI!</b> Revolutionize your interview preparation with our cutting-edge <b>AI-powered</b> mock interviewer. Designed for job seekers of all levels, HirePrep AI offers a personalized, interactive, and realistic interview experience
           </p>
-          <div className="flex items-center justify-center flex-col mt-5">
-            <Button
-              size={"lg"}
-              className="p-8 mb-8 z-10 md:mb-0 text-2xl w-full sm:w-fit border-t-2 rounded-full border-black bg-gradient-to-b from-sky-400 to-violet-500 hover:bg-white group transition-all flex items-center justify-center gap-4 hover:shadow-xl hover:shadow-neutral-800 duration-500"
-            >
-              <span className="bg-clip-text text-white  md:text-center font-sans group-hover:bg-gradient-to-r group-hover:from-black group-hover:to-black">
-                Start For Free Today
-              </span>
-            </Button>
+          <div className="absolute pointer-events-none inset-0 flex items-center justify-center dark:bg-black bg-black [mask-image:radial-gradient(circle_at_center,transparent_5%,black)]"></div>
+          <div className="mt-8 animate-bounce border border-x-gray-400 rounded-full h-20 w-20 flex justify-center items-center">
+            <span className="text-5xl">&#8681;</span>
           </div>
-          <DotPattern
-          cr={2}
-        className={cn(
-          "[mask-image:radial-gradient(1000px_circle_at_center,black,transparent)]",
-        )}
-      />
-        </div>
-             </div>
+        </main>
+
+      
+
+        <footer className="w-full p-6 text-center bg-black text-gray-400">
+          © 2024 HirePrep AI. All rights reserved.
+        </footer>
+      </div>
     </main>
   );
 }
