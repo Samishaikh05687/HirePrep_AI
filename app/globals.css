@@ -67,5 +67,188 @@
       @apply bg-background text-foreground;
     }
   }
+  .card {
+    --font-color: #323232;
+    --bg-color: #EFF0F3;
+    width: 300px;
+    height: 350px;
+    border-radius: 20px;
+    background: var(--bg-color);
+    box-shadow: -9px 9px 18px #5a5a5a,
+                9px -9px 18px #ffffff;
+    display: flex;
+    flex-direction: column;
+    transition: .4s;
+    position: relative;
+  }
+  
+  .card:hover {
+    transform: scale(1.02);
+    box-shadow: 0px 0px 10px 2px #5a5a5a;
+  }
+  
+  .card__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+    background-color: #4B70F5;
+  }
+  
+  .card__descr-wrapper {
+    padding: 15px;
+    display: grid;
+  }
+  
+  .card__title {
+    color: var(--font-color);
+    text-align: center;
+    margin-bottom: 15px;
+    font-weight: 900;
+    font-size: 22px;
+  }
+  
+  .card__descr {
+    color: var(--font-color);
+    font-size:16px;
+  }
+  
+  .svg {
+    width: 25px;
+    height: 25px;
+    transform: translateY(25%);
+    fill: var(--font-color);
+  }
+  
+  .card__links {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-self: flex-end;
+  }
+  
+  .card__links .link {
+    color: var(--font-color);
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+  }
+  
+  .card__links .link:hover {
+    text-decoration: underline;
+  }
+  
+  
+  
+  .contact-page-container {
+    padding: 40px;
+    font-family: Arial, sans-serif;
+    border-radius:20px
+  }
+  
+  .contact-header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .contact-header h1 {
+    font-size: 45px;
+    color: #333;
+    font-weight: 700;
+  }
+  
+  .contact-header p {
+    font-size: 20px;
+    color: #555;
+  }
+  
+  .contact-content {
+    display: flex;
+    justify-content: space-between;
+    margin:0px 30px;
+  }
+  
+  .contact-info {
+    flex: 1;
+    margin-right: 20px;
+  }
+  
+  .contact-info h2 {
+    font-size: 40px;
+    color:black;
+    margin-top:60px;
+  }
+  
+  .contact-info p {
+    font-size: 20px;
+    color: #555;
+    margin-bottom: 20px;
+  }
+  
+  .email-info, .address-info {
+    margin-top: 20px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .email-info span, .address-info span {
+    margin-right: 10px;
+  }
+  
+  .email-info a, .address-info p {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .email-info a:hover, .address-info p:hover {
+    text-decoration: underline;
+  }
+  
+  .form-container {
+    flex: 1;
+    border:1px solid #E5E7EB;
+    border-radius:20px;
+    padding:20px;
+    width:200px;
+    background-color: #fff;
+    margin-bottom:10px;
 
+  }
+  
+  .form-container form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-container form h3 {
+    font-size: 25px;
+    margin-bottom: 20px;
+    color: #333;
+    font-weight:600;
+  }
+  
+  .form-container form input,
+  .form-container form textarea {
+    margin-bottom: 15px;
+    padding: 10px;
+    font-size: 14px;
+    border: 1px solid #E5E7EB;
+    border-radius: 5px;
+  }
+  
+  .form-container form button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #fff;
+    background-color: #4B70F5;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin:20px 20px;
+    
+  }
+  
+  .form-container form button:hover {
+    background-color: #2e4494;
+  }
   

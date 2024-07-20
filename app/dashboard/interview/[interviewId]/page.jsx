@@ -81,7 +81,7 @@ const Interview = ({ params }) => {
 
       <div className="flex justify-center  items-center">
         <Link href={`/dashboard/interview/${params.interviewId}/start`}>
-          <Button className="bg-[#4B70F5] font-[500] text-white hover:text-black hover:bg-secondary">
+          <Button className="bg-red-600 font-[500] text-white hover:text-black hover:bg-red-600 hover:scale-105">
             Start Interview
           </Button>
         </Link>

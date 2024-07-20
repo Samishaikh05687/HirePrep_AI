@@ -56,7 +56,7 @@ const StartInterview = ({ params }) => {
         )}
         {activeQuestionIndex == mockInterviewQuestion?.length - 1 && (
           <Link href={'/dashboard/interview/'+interviewData?.mockId+"/feedback"}>
-          <Button className="bg-[#4B70F5] text-white hover:text-black hover:bg-secondary ">
+          <Button className="bg-red-600 font-[500] text-white hover:text-black hover:bg-red-500 ">
             End Interview
           </Button>
           </Link>
