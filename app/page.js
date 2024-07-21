@@ -78,8 +78,8 @@ export default async function Home() {
               </span>{" "}
               WORKS ?
             </h2>
-            <h2 className="mt-5 text-xl font-light">
-              Three steps to smarter spending :
+            <h2 className="mt-5 text-xl font-light text-gray-500">
+            Give mock interview in just 3 simplar easy step
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ml-10 mt-10">
               <div class="card">
