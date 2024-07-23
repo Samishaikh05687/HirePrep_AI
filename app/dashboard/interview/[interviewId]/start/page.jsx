@@ -27,6 +27,7 @@ const StartInterview = ({ params }) => {
     setMockInterviewQuestion(jsonMockResp);
     setInterviewData(result[0]);
   };
+  
   return (
     <div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
@@ -35,32 +36,38 @@ const StartInterview = ({ params }) => {
           activeQuestionIndex={activeQuestionIndex}
         />
 
-        <RecordAnswerSection
-          mockInterviewQuestion={mockInterviewQuestion}
-          activeQuestionIndex={activeQuestionIndex}
-          interviewData={interviewData}
-        />
-      </div>
-      <div className="flex justify-end gap-6 m-0">
-        {activeQuestionIndex > 0 && (
-          <Button onClick={()=>setActiveQuestionIndex(activeQuestionIndex-1)} 
-          className="bg-[#4B70F5] text-white hover:text-black hover:bg-secondary ">
-            Previous Question
-          </Button>
-        )}
-        {activeQuestionIndex != mockInterviewQuestion?.length - 1 && (
-          <Button onClick={()=>setActiveQuestionIndex(activeQuestionIndex+1)}
-          className="bg-[#4B70F5] text-white hover:text-black hover:bg-secondary ">
-            Next Question
-          </Button>
-        )}
-        {activeQuestionIndex == mockInterviewQuestion?.length - 1 && (
-          <Link href={'/dashboard/interview/'+interviewData?.mockId+"/feedback"}>
-          <Button className="bg-red-600 font-[500] text-white hover:text-black hover:bg-red-500 ">
-            End Interview
-          </Button>
-          </Link>
-        )}
+        <div className="flex flex-col items-center mt-5">
+          <RecordAnswerSection
+            mockInterviewQuestion={mockInterviewQuestion}
+            activeQuestionIndex={activeQuestionIndex}
+            interviewData={interviewData}
+          />
+          <div className="flex justify-center gap-2 ">
+            {activeQuestionIndex > 0 && (
+              <Button
+                onClick={() => setActiveQuestionIndex(activeQuestionIndex - 1)}
+                className="bg-[#4B70F5] text-white hover:text-black hover:bg-secondary"
+              >
+                Previous Question
+              </Button>
+            )}
+            {activeQuestionIndex !== mockInterviewQuestion?.length - 1 && (
+              <Button
+                onClick={() => setActiveQuestionIndex(activeQuestionIndex + 1)}
+                className="bg-[#4B70F5] text-white hover:text-black hover:bg-secondary"
+              >
+                Next Question
+              </Button>
+            )}
+            {activeQuestionIndex === mockInterviewQuestion?.length - 1 && (
+              <Link href={'/dashboard/interview/' + interviewData?.mockId + "/feedback"}>
+                <Button className="bg-red-600 font-[500] text-white hover:text-black hover:bg-red-500">
+                  End Interview
+                </Button>
+              </Link>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

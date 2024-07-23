@@ -70,7 +70,7 @@
   .card {
     --font-color: #323232;
     --bg-color: #EFF0F3;
-    width: 350px;
+    width: 320px;
     height: 350px;
     border-radius: 20px;
     background: var(--bg-color);

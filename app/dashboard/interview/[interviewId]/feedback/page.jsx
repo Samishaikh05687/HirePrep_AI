@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 
 const Feedback = ({ params }) => {
   const [feedbackList, setFeedbackList] = useState([]);
+  const [overallRating, setOverallRating] = useState(0);
   const router = useRouter();
 
   useEffect(() => {
@@ -30,11 +31,23 @@ const Feedback = ({ params }) => {
     console.log(result);
 
     setFeedbackList(result);
+    calculateOverallRating(result);
+  };
+
+  const calculateOverallRating = (feedbackList) => {
+    if (feedbackList.length === 0) {
+      setOverallRating(0);
+      return;
+    }
+    const totalRating = feedbackList.reduce((sum, item) => sum + item.rating, 0);
+    const averageRating = totalRating / feedbackList.length;
+    const scaledRating = Math.min(averageRating, 10).toFixed(1); // Ensures rating is not above 10
+    setOverallRating(scaledRating);
   };
 
   return (
     <div className="p-10 flex gap-1 flex-col">
-      {feedbackList?.length == 0 ? (
+      {feedbackList?.length === 0 ? (
         <h2 className="font-bold text-xl text-gray-500">
           <span className="text-red-600 text-xl">Oops..</span>No Interview
           Feedback record found!
@@ -48,7 +61,7 @@ const Feedback = ({ params }) => {
             Here is your Interview Feedback
           </h2>
           <h2 className="text-[#4B70F5] text-lg my-3">
-            Your overall interview rating: <strong>7/10</strong>
+            Your overall interview rating: <strong>{overallRating}/10</strong>
           </h2>
           <h2 className="text-sm text-gray-500">
             Find below interview questions with correct answers, your answers,
@@ -82,7 +95,7 @@ const Feedback = ({ params }) => {
       )}
       <div>
         <Button
-          className="bg-[#4B70F5]  text-white hover:text-black hover:bg-secondary mt-2"
+          className="bg-[#4B70F5] text-white hover:text-black hover:bg-secondary mt-2"
           onClick={() => router.replace("/dashboard")}
         >
           Go to Dashboard

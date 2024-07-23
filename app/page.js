@@ -78,10 +78,10 @@ export default async function Home() {
               </span>{" "}
               WORKS ?
             </h2>
-            <h2 className="mt-5 text-xl font-light text-gray-500">
-            Give mock interview in just 3 simplar easy step
+            <h2 className="mt-5 text-lg font-light text-gray-500">
+            Give mock interview in just 3 simplar easy step :
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 ml-10 mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ml-10 mt-10">
               <div class="card">
                 <div class="card__img"></div>
                 <div class="card__descr-wrapper">
@@ -124,7 +124,7 @@ export default async function Home() {
         <section className="w-full py-20 bg-white text-black rounded-xl font-arsenal">
           <div className="contact-page-container">
             <div className="contact-header">
-              <h1>Contact Us</h1>
+              <h1 className="text-[#4B70F5]">Contact Us</h1>
               <p>Have questions or need assistance? We're here to help!</p>
             </div>
             <div className="contact-content">
