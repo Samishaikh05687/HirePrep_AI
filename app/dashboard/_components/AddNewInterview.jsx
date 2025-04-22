@@ -49,8 +49,8 @@ const AddNewInterview = () => {
     const result = await chatSession.sendMessage(InputPromt);
     const MockJsonResp = (result.response
       .text())
-      .replace("```json", "")
-      .replace("```", "");
+      .replace('```json', '')
+      .replace('```', '');
     console.log(JSON.parse(MockJsonResp));
     setJsonResponse(MockJsonResp);
 

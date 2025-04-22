@@ -49,6 +49,10 @@ const RecordAnswerSection = ({
   const SaveUserAnswer = async () => {
     if (isRecording) {
       stopSpeechToText();
+      if (userAnswer.length < 10) {
+        toast.error("Error while recording answer, please try again!");
+        return;
+      }
     } else {
       startSpeechToText();
     }
@@ -70,10 +74,10 @@ const RecordAnswerSection = ({
 
     const result = await chatSession.sendMessage(feedbackPromt);
 
-    const mockJsonResp = result.response
-      .text()
-      .replace("```json", "")
-      .replace("```", "");
+const mockJsonResp = result.response
+  .text()
+  .replace(/```json|```/g, "") // Remove backticks and "```json"
+  .trim(); // Trim any extra whitespace
     console.log(mockJsonResp);
     const JsonFeedbackResp = JSON.parse(mockJsonResp);
 
@@ -129,4 +133,4 @@ const RecordAnswerSection = ({
   );
 };
 
-export default RecordAnswerSection;
+export default RecordAnswerSection; 

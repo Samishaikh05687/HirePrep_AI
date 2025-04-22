@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import Head from "next/head";
 import Link from "next/link";
+import { ClipboardCheck, Users, BarChart3 } from 'lucide-react';
 
 export default async function Home() {
   return (
@@ -73,7 +74,7 @@ export default async function Home() {
           <div className="max-w-7xl mx-auto px-4">
             <h2 className="text-4xl font-bold">
               HOW{" "}
-              <span className="text-[#4B70F5] border-b-2 border-black">
+              <span className="text-[#4B70F5] ">
                 HirePrep AI
               </span>{" "}
               WORKS ?
@@ -81,47 +82,88 @@ export default async function Home() {
             <h2 className="mt-5 text-lg font-light text-gray-500">
             Give mock interview in just 3 simplar easy step :
             </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 ml-10 mt-10">
-              <div class="card">
-                <div class="card__img"></div>
-                <div class="card__descr-wrapper">
-                  <p class="card__title">Step 1: Sign Up & Personalize</p>
-                  <p class="card__descr">
-                    Create an account with HirePrep AI and fill out your profile
-                    details. This helps us tailor the interview questions and
-                    scenarios to your specific needs and career goals.
-                  </p>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card__img"></div>
-                <div class="card__descr-wrapper">
-                  <p class="card__title">Step 2: Start Your Mock Interview</p>
-                  <p class="card__descr">
-                    Initiate a mock interview session with our AI-powered
-                    interviewer. You'll receive questions based on real
-                    interview scenarios, complete all question and see result.
-                  </p>
-                </div>
-              </div>
-              <div class="card">
-                <div class="card__img"></div>
-                <div class="card__descr-wrapper">
-                  <p class="card__title">Step 3: Receive Instant Feedback</p>
-                  <p class="card__descr">
-                    After session,HirePrep AI provides immediate feedback on
-                    your answers. You'll get insights into your strengths and
-                    areas for improvement, helping you refine your skills.
-                  </p>
-                </div>
-              </div>
+            <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 p-6 bg-white">
+      {/* Card 1 */}
+      <div className="group bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+        <div className="p-6">
+          <div className="flex items-center mb-4">
+            <div className="bg-blue-50 rounded-md p-2 mr-3">
+              <ClipboardCheck size={24} className="text-blue-600" />
             </div>
+            <h3 className="text-lg font-semibold text-gray-900">Step 1: Sign Up & Personalize</h3>
+          </div>
+          
+          <div className="h-px w-full bg-gray-100 my-4"></div>
+          
+          <p className="text-gray-600 text-sm leading-relaxed mb-4">
+            Create an account with HirePrep AI and fill out your profile
+            details. This helps us tailor the interview questions and
+            scenarios to your specific needs and career goals.
+          </p>
+          
+          <button className="mt-2 w-full bg-blue-600 hover:bg-blue-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+            Create Account
+          </button>
+        </div>
+        <div className="h-1 w-full bg-blue-600"></div>
+      </div>
+
+      {/* Card 2 */}
+      <div className="group bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+        <div className="p-6">
+          <div className="flex items-center mb-4">
+            <div className="bg-green-50 rounded-md p-2 mr-3">
+              <Users size={24} className="text-green-600" />
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900">Step 2: Start Your Mock Interview</h3>
+          </div>
+          
+          <div className="h-px w-full bg-gray-100 my-4"></div>
+          
+          <p className="text-gray-600 text-sm leading-relaxed mb-4">
+            Initiate a mock interview session with our AI-powered
+            interviewer. You'll receive questions based on real
+            interview scenarios, complete all questions and see results.
+          </p>
+          
+          <button className="mt-2 w-full bg-green-600 hover:bg-green-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+            Begin Interview
+          </button>
+        </div>
+        <div className="h-1 w-full bg-green-600"></div>
+      </div>
+
+      {/* Card 3 */}
+      <div className="group bg-white border border-gray-200 rounded-lg shadow-sm hover:shadow-md transition-shadow duration-300">
+        <div className="p-6">
+          <div className="flex items-center mb-4">
+            <div className="bg-indigo-50 rounded-md p-2 mr-3">
+              <BarChart3 size={24} className="text-indigo-600" />
+            </div>
+            <h3 className="text-lg font-semibold text-gray-900">Step 3: Receive Instant Feedback</h3>
+          </div>
+          
+          <div className="h-px w-full bg-gray-100 my-4"></div>
+          
+          <p className="text-gray-600 text-sm leading-relaxed mb-4">
+            After the session, HirePrep AI provides immediate feedback on
+            your answers. You'll get insights into your strengths and
+            areas for improvement, helping you refine your skills.
+          </p>
+          
+          <button className="mt-2 w-full bg-indigo-600 hover:bg-indigo-700 text-white py-2 px-4 rounded-md text-sm font-medium transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+            View Insights
+          </button>
+        </div>
+        <div className="h-1 w-full bg-indigo-600"></div>
+      </div>
+    </div>
           </div>
         </section>
 
         
 
-        <section className="w-full py-20 bg-white text-black rounded-xl font-arsenal">
+        <section className="w-full  bg-white text-black rounded-xl font-arsenal">
           <div className="contact-page-container">
             <div className="contact-header">
               <h1 className="text-[#4B70F5]">Contact Us</h1>
