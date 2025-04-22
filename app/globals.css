@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Theme Variables */
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -10,7 +11,7 @@
     --card-foreground: 0 0% 3.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 3.9%;
-    --primary: 225 89.6% 62.75%; /* Added missing semicolon */
+    --primary: 225 89.6% 62.75%;
     --primary-foreground: 0 0% 98%;
     --secondary: 0 0% 96.1%;
     --secondary-foreground: 0 0% 9%;
@@ -24,11 +25,13 @@
     --input: 0 0% 89.8%;
     --ring: 0 0% 3.9%;
     --radius: 0.5rem;
+
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
     --chart-5: 27 87% 67%;
+  }
 
   .dark {
     --background: 0 0% 3.9%;
@@ -56,87 +59,18 @@
     --chart-4: 280 65% 60%;
     --chart-5: 340 75% 55%;
   }
-}
 
-@layer base {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
   }
 }
 
-.card {
-  --font-color: #323232;
-  --bg-color: #EFF0F3;
-  width: 320px;
-  height: 350px;
-  border-radius: 20px;
-  background: var(--bg-color);
-  box-shadow: -9px 9px 18px #5a5a5a, 9px -9px 18px #ffffff;
-  display: flex;
-  flex-direction: column;
-  transition: .4s;
-  position: relative;
-}
+/* Custom Classes */
 
-.card:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 0px 10px 2px #5a5a5a;
-}
-
-.card__img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 20px 20px 0 0;
-  background-color: #4B70F5;
-}
-
-.card__descr-wrapper {
-  padding: 15px;
-  display: grid;
-}
-
-.card__title {
-  color: var(--font-color);
-  text-align: center;
-  margin-bottom: 15px;
-  font-weight: 900;
-  font-size: 25px;
-}
-
-.card__descr {
-  color: var(--font-color);
-  font-size: 19px;
-  text-align: center;
-}
-
-.svg {
-  width: 25px;
-  height: 25px;
-  transform: translateY(25%);
-  fill: var(--font-color);
-}
-
-.card__links {
-  margin-top: 10px;
-  display: flex;
-  justify-content: space-between;
-  align-self: flex-end;
-}
-
-.card__links .link {
-  color: var(--font-color);
-  font-weight: 600;
-  font-size: 15px;
-  text-decoration: none;
-}
-
-.card__links .link:hover {
-  text-decoration: underline;
-}
 
 .contact-page-container {
   padding: 40px;
