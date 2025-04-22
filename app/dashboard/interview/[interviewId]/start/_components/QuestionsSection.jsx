@@ -25,7 +25,17 @@ const QuestionsSection = ({ mockInterviewQuestion, activeQuestionIndex }) => {
         {mockInterviewQuestion.map((question, index) => (
           <h2 
             key={index} 
-            className={`p-1 border font-semibold rounded-full text-sm md:text-sm text-center cursor-pointer ${activeQuestionIndex === index ? 'bg-blue-500 text-white' : ''}`}
+            style={{
+              padding: '0.25rem',  // Equivalent to p-1 in Tailwind
+              border: '1px solid #ccc',  // Equivalent to border in Tailwind
+              fontWeight: '600',  // Equivalent to font-semibold in Tailwind
+              borderRadius: '9999px',  // Equivalent to rounded-full in Tailwind
+              fontSize: '0.875rem',  // Equivalent to text-sm in Tailwind
+              textAlign: 'center',  // Equivalent to text-center in Tailwind
+              cursor: 'pointer',  // Equivalent to cursor-pointer in Tailwind
+              backgroundColor: activeQuestionIndex === index ? '#3b82f6' : '',  // bg-blue-500 when active
+              color: activeQuestionIndex === index ? '#ffffff' : '',  // text-white when active
+            }}
           >
             Question #{index + 1}
           </h2>
